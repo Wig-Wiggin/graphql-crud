@@ -1,0 +1,27 @@
+type CoffeeResponse{
+    id:ID
+    name:String
+    size:Size
+}
+
+input CoffeeRequest{
+    name:String
+    size:Size
+}
+
+enum Size{
+    SMALL,MEDIUM,LARGE,REGULAR
+}
+
+
+type Query{
+    findAll:[CoffeeResponse]
+    findOne(id:ID):CoffeeResponse
+
+}
+
+type Mutation{
+    createCoffee(request:CoffeeRequest):CoffeeResponse
+    changeSize(id:ID,size:Size):CoffeeResponse
+    delete(id:ID):CoffeeResponse
+}
